@@ -16,9 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.shortcuts import redirect
+
+def home(request):
+    return redirect("listar_livros")
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-        path("", include("biblioteca.urls")),
+    path("admin/", admin.site.urls),
+    path("", home),
+    path("", include("biblioteca.urls")),
 ]
-

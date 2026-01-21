@@ -8,11 +8,13 @@
     <h1>Livros</h1>
 
     <ul>
-        {% for livro in livros %}
-            <li>{{ livro.titulo }} — {{ livro.autor }}</li>
-        {% empty %}
-            <li>Nenhum livro cadastrado.</li>
-        {% endfor %}
-    </ul>
+  {% for livro in livros %}
+    <li>
+      <a href="{% url 'detalhes' livro.id %}">{{ livro.titulo }}</a> — {{ livro.autor }}
+    </li>
+  {% empty %}
+    <li>Nenhum livro cadastrado.</li>
+  {% endfor %}
+</ul>
 </body>
 </html>
